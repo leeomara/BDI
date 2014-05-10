@@ -105,3 +105,22 @@ footer .status {
   font-size: 2em;
   margin-top: 2px;
 }
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range] {
+    -webkit-appearance: none;
+  vertical-align: middle;
+  /*width: 240px;*/
+  height: 2px;
+  background-color: #d2e1F1;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0.5, #1d6ab7), color-stop(0.5, #d2e1F1))
+}
+input[type="range"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+    background-color: #fff;
+    border: 1px solid #d2e1F1;
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+}

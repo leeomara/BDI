@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>BDI</title>
+    </head>
+    <body>
+        <div class ="app">
+            <div class="questionContainer"></div>
+            <div class="next">Next</div>
+        </div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="js/lib/underscore-min.js"></script>
+        <script type="text/javascript" src="js/lib/backbone-min.js"></script>
+        <script type="text/javascript" src="js/lib/mustache.min.js"></script>
+        <script type="text/javascript" src="js/models/question-model.js"></script>
+        <script type="text/javascript" src="js/collections/question-collection.js"></script>
+        <script type="text/javascript" src="js/views/question-view.js"></script>
+        <script type="text/javascript" src="js/views/app-view.js"></script>
+        <script type="text/javascript">
+
+
+            var questions = [
+                {
+                    'id': 0,
+                    'text': 'Throughout our lives, most of us have had pain from time to time (such as minor headaches, sprains, and toothaches). Have you had pain other than these everyday kinds of pain today?',
+                    'type': 'bool'
+                },
+                {
+                    'id': 1,
+                    'text': 'Please rate your pain at its WORST in the last 24 hours.',
+                    'type': 'range',
+                    'min': 'No Pain',
+                    'max': 'Pain as bad as you can imagine',
+                },
+                {
+                    'id': 2,
+                    'text': 'Please rate your pain at its LEAST in the last 24 hours.',
+                    'type': 'range',
+                    'min': 'No Pain',
+                    'max': 'Pain as bad as you can imagine',
+                },
+                {
+                    'id': 3,
+                    'text': 'Please rate your pain on the AVERAGE.',
+                    'type': 'range',
+                    'min': 'No Pain',
+                    'max': 'Pain as bad as you can imagine',
+                },
+                {
+                    'id': 4,
+                    'text': 'How much pain you have RIGHT NOW.',
+                    'type': 'range',
+                    'min': 'No Pain',
+                    'max': 'Pain as bad as you can imagine',
+                },
+                {
+                    'id': 5,
+                    'text': 'In the last 24 hours, how much relief have pain treatments or medications provided?',
+                    'type': 'range',
+                    'min': 'No Relief',
+                    'max': 'Complete Relief',
+                },
+                {
+                    'id': 6,
+                    'text': 'In the last 24 hours, how much relief have pain treatments or medications provided?',
+                    'type': 'range',
+                    'min': 'No Relief',
+                    'max': 'Complete Relief',
+                },
+                {
+                    'id': 7,
+                    'text': 'During the past 24 hours, pain has interfered with your General activity:',
+                    'type': 'range',
+                    'min': 'Does not interfere',
+                    'max': 'Completely interfere',
+                },
+                {
+                    'id': 8,
+                    'text': 'During the past 24 hours, pain has interfered with your Mood:',
+                    'type': 'range',
+                    'min': 'Does not interfere',
+                    'max': 'Completely interfere',
+                },
+                {
+                    'id': 9,
+                    'text': 'During the past 24 hours, pain has interfered with your Walking ability:',
+                    'type': 'range',
+                    'min': 'Does not interfere',
+                    'max': 'Completely interfere',
+                },
+                {
+                    'id': 10,
+                    'text': 'During the past 24 hours, pain has interfered with your Normal work (includes both work outside the home and housework):',
+                    'type': 'range',
+                    'min': 'Does not interfere',
+                    'max': 'Completely interfere',
+                },
+                {
+                    'id': 11,
+                    'text': 'During the past 24 hours, pain has interfered with your relations with other people:',
+                    'type': 'range',
+                    'min': 'Does not interfere',
+                    'max': 'Completely interfere',
+                },
+                {
+                    'id': 12,
+                    'text': 'During the past 24 hours, pain has interfered with your Sleep:',
+                    'type': 'range',
+                    'min': 'Does not interfere',
+                    'max': 'Completely interfere',
+                },
+                {
+                    'id': 13,
+                    'text': 'During the past 24 hours, pain has interfered with your Enjoyment of life:',
+                    'type': 'range',
+                    'min': 'Does not interfere',
+                    'max': 'Completely interfere',
+                }
+            ];
+            $(function() {
+                var questionCollection = new QuestionsCollection(questions);
+                app = new AppView({'questionCollection':questionCollection, el:$('.app')});
+                app.getNextQuestion();
+            });
+        </script>
+
+
+        <script id="questionTemplate" type="html/template">
+            <div class="questionText">{{ text }}</div>
+        </script>
+
+        <script id="doneTemplate" type="html/template">
+            All Done
+        </script>
+    </body>
+</html>

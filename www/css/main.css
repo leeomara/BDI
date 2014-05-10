@@ -1,11 +1,12 @@
 /*
 
-darker teal: #00a79e;
-lighter teal: #6fcac4;
+teal:   #00a69c;
 
-green: #3F9537;
-yellow: #F8B525;
-red: #D1232A;
+blue:   #1d6ab7;
+gray:   #57585b;
+red:    #c5212e;
+green:  #58923a;
+yellow: #eca20f;
 
 */
 
@@ -25,7 +26,7 @@ body > .container {
 }
 
 body > .navbar {
-  background: #00a79e;
+  background: #00a69c;
   border: 0;
 }
 
@@ -33,6 +34,26 @@ body > .navbar {
   color: #fff;
   font-size: 2em;
   padding-left: 0;
+  height: 58px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.logo {
+  width: 110px;
+  height: auto;
+}
+
+.icon {
+  width: 30px;
+  height: auto;
+}
+
+.icon + .icon {
+  margin-left: 0.4em;
 }
 
 .btn {
@@ -61,24 +82,17 @@ body > .navbar {
   margin-bottom: 0;
 }
 
+.btn-primary {
+  background: #1d6ab7;
+}
+
 footer {
+  background-color: #1d6ab7;
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-}
-
-footer.normal {
-  background-color: #3F9537;
-}
-
-footer.warning {
-  background-color: #F8B525;
-}
-
-footer.danger {
-  background-color: #D1232A;
 }
 
 footer .status {

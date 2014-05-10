@@ -1,35 +1,85 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <title>BDI</title>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/roboto.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>relievR</title>
     </head>
-    <body>
-        <div class ="app">
-            <div class="questionContainer"></div>
-            <div class="next">Next</div>
+    <body class="app">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="pull-left">
+                    <a class="navbar-brand" href="#">relievR</a>
+                </div>
+
+                <div class="navbar-text pull-right">
+                    <button class="btn btn-sm btn-default no-border"><span class="glyphicon glyphicon-stats"></span></button>
+                    <button class="btn btn-sm btn-default no-border"><span class="glyphicon glyphicon-asterisk"></span></button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1 class="text-center">
+                <div class="questionContainer lead"></div>
+            </h1>
+
+            <form>
+                <div class="form-group well well-sm">
+                    <select class="form-control input-lg">
+                        <option>Lorem ipsum</option>
+                        <option>Sit amet</option>
+                        <option>Consectetur adipisicing</option>
+                        <option>Sed do eiusmod</option>
+                        <option>Tempor incididunt</option>
+                    </select>
+                </div>
+
+                <div class="form-group well well-sm">
+                    <button class="btn btn-lg btn-primary btn-block">YES</button>
+                    <button class="btn btn-lg btn-default btn-block">NO</button>
+                </div>
+
+                <div class="form-group well well-sm text-center">
+                    <div class="range-input clearfix">
+                        <p class="value">6</p>
+                        <input type="range" min="0" max="10" value="0">
+                        <span class="pull-left">0 - Lorem</span>
+                        <span class="pull-right">Ipsum - 10</span>
+                    </div>
+                </div>
+            </form>
+
+            <ul class="pager">
+                <li class="next"><a href="#">Next <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+            </ul>
         </div>
+
+        <footer class="normal">
+            <div class="container">
+                <p class="text-muted text-center status">NORMAL</p>
+            </div>
+        </footer>
+
+<!--
+  <footer class="warning">
+    <div class="container">
+      <p class="text-muted text-center status">WARNING</p>
+    </div>
+  </footer> -->
+
+<!--
+  <footer class="danger">
+    <div class="container">
+      <p class="text-muted text-center status">DANGER</p>
+    </div>
+  </footer>
+ -->
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>

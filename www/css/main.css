@@ -43,17 +43,22 @@ h1 {
 }
 
 .logo {
-  width: 110px;
-  height: auto;
+  width: auto;
+  height: 30px;
 }
 
 .icon {
-  width: 30px;
-  height: auto;
+  width: auto;
+  height: 30px;
 }
 
 .icon + .icon {
   margin-left: 0.4em;
+}
+
+.icon-btn-next {
+  height: 48px;
+  width: auto;
 }
 
 .btn {
@@ -87,7 +92,7 @@ h1 {
 }
 
 footer {
-  background-color: #1d6ab7;
+  /*background-color: #1d6ab7;*/
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -98,5 +103,5 @@ footer {
 footer .status {
   color: #fff;
   font-size: 2em;
-  margin-top: 0.3em;
+  margin-top: 2px;
 }

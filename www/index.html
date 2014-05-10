@@ -31,7 +31,7 @@
 
         <footer>
             <div class="container text-center status next">
-                <p>NEXT <span class="glyphicon glyphicon-chevron-right"></span></p>
+                <p><img class="icon icon-btn-next" src="img/btn_next.svg"></p>
             </div>
         </footer>
 
@@ -162,13 +162,13 @@
 
         <script id="questionTemplate" type="html/template">
             <div class="questionText animated slideInRight">
-                <h1 class="text-center">{{ text }}</h1>
+                <h1 class="text-center">{{{ text }}}</h1>
 
                 <form>
                     <div class="form-group well well-sm text-center">
                         <div class="range-input clearfix">
-                            <p class="value">6</p>
-                            <input id="range-value-{id}" type="range" min="0" max="10" value="0" class="form-input input-lg">
+                            <p class="value">5</p>
+                            <input type="range" min="0" max="10" value="5" class="form-input input-lg">
                             <span class="pull-left">0 - {{ min }}</span>
                             <span class="pull-right">{{ max }} - 10</span>
                         </div>

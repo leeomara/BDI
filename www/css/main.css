@@ -1,0 +1,88 @@
+/*
+
+darker teal: #00a79e;
+lighter teal: #6fcac4;
+
+green: #3F9537;
+yellow: #F8B525;
+red: #D1232A;
+
+*/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 60px;
+}
+
+body > .container {
+  margin-top: 30px;
+}
+
+body > .navbar {
+  background: #00a79e;
+  border: 0;
+}
+
+.navbar-default .navbar-brand {
+  color: #fff;
+  font-size: 2em;
+  padding-left: 0;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.no-border {
+  border: 0;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.well {
+  border-radius: 0;
+}
+
+.range-input span {
+  margin-top: 6px;
+}
+
+.range-input .value {
+  font-weight: bold;
+  font-size: 1.6em;
+  margin-bottom: 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+}
+
+footer.normal {
+  background-color: #3F9537;
+}
+
+footer.warning {
+  background-color: #F8B525;
+}
+
+footer.danger {
+  background-color: #D1232A;
+}
+
+footer .status {
+  color: #fff;
+  font-size: 2em;
+  margin-top: 0.3em;
+}

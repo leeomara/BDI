@@ -115,15 +115,10 @@ Question = Backbone.Model.extend({
 
 
         var diff = ((afterAverage - beforeAverage)/ beforeAverage)*100;
-        // //
-        // if (afterAverage == 0){
-        //     diff = (0 - beforeAverage)*100;
-        // }
 
-        // if (beforeAverage == 0){
-        //     diff = (afterAverage)*100;
-        // }
-
+        if(isNaN(diff)){
+            diff = 0;
+        }
 
         diff = parseFloat(diff).toFixed(0);
         return diff;
@@ -142,6 +137,9 @@ Question = Backbone.Model.extend({
         }
         else{
             avg = total/dataSet.length;
+        }
+        if(isNaN(avg)){
+            avg = 0;
         }
         avg = parseFloat(avg).toFixed(1);
         return avg;

@@ -103,6 +103,8 @@ var AppView = Backbone.View.extend({
                 //Go through and calculate the analytics
                 this.questionCollection.each(function(question){
                     // question.calculateResults(1399782707164,twoWeeks.valueOf());
+
+                    //HARD CODED FOR DEMO
                     question.calculateResults(1399782707164,1399828159068);
 
                     var resultView = new ResultView({model:question});

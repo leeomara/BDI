@@ -1,18 +1,16 @@
 /**
- * bdi/views/question-view.js
- * Backbone View that represents a Question
+ * bdi/views/result-view.js
+ * Backbone View that represents a Result
  * Author - Chris Noble @noblezilla
  * Copyright (C) 2014
  *
  */
 
-var QuestionView = Backbone.View.extend({
+var ResultView = Backbone.View.extend({
 
-    template: '#questionTemplate',
+    template: '#questionResultsTemplate',
+    timestamp: null,
 
-    events:{
-        'change input[type="range"]': 'rangeChange',
-    },
 
     /**
     * initialize
@@ -25,9 +23,8 @@ var QuestionView = Backbone.View.extend({
         _.bindAll(this, "render", "rangeChange");
 
         var that = this;
-        if (options.model) {
-            this.model = options.model;
-        }
+
+        this.model = options.model;
 
     },
 

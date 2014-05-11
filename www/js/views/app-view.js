@@ -17,10 +17,13 @@ var AppView = Backbone.View.extend({
     questionContainer: '.questionContainer',
     allDoneTemplate: '#doneTemplate',
     appContainer: '.appContainer',
+    questionResultsContainer: '.questionResultsContainer',
     timestamp: null,
     currQuestion: null,
+    reportsCalculated: false,
     events:{
-        'click .next': 'getNextQuestion'
+        'click .next': 'getNextQuestion',
+        'click .report': 'showReport'
     },
 
     /**
@@ -31,7 +34,7 @@ var AppView = Backbone.View.extend({
     initialize : function(options) {
 
         //Bind this to the following functions
-        _.bindAll(this, "getNextQuestion", "showEndScreen");
+        _.bindAll(this, "getNextQuestion", "showEndScreen", "showReport", "hideAllContainers");
 
         var that = this;
         this.questionCollection = options.questionCollection;
@@ -75,6 +78,42 @@ var AppView = Backbone.View.extend({
         var rendered = Mustache.to_html(templater, {});
         this.$(this.appContainer).html(rendered);
         return this;
+    },
+
+
+
+    /**
+    * showReport
+    * Shows the report section
+    */
+    showReport: function(event) {
+
+        var $resultContainer = this.$(this.questionResultsContainer);
+        //Just show the report if it has been calculated
+        if (!this.reportsCalculated) {
+
+            var twoWeeks = moment().subtract('days', 14);
+            //Go through and calculate the analytics
+            this.questionCollection.each(function(question){
+                question.calculateResults(0,twoWeeks.valueOf());
+                var resultView = new ResultView({model:question});
+                $resultContainer.append(resultView.render().el);
+            });
+            this.reportsCalculated = true;
+        }
+        this.hideAllContainers();
+        $resultContainer.show();
+    },
+
+
+    /**
+    * hideAllContainers
+    * Hides all of the containers
+    */
+    hideAllContainers:function() {
+        this.$('footer').hide();
+        this.$(this.questionContainer).hide();
+        this.$(this.questionResultsContainer).hide();
     }
 
 

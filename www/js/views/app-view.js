@@ -24,8 +24,15 @@ var AppView = Backbone.View.extend({
     currView: '.questionContainer',
     events:{
         'click .next': 'getNextQuestion',
+        'click .questionsView': 'getNextQuestion',
         'click .treatmentsView': 'showTreatments',
-        'click .reportView': 'showReport',
+        'click .reportsView': 'showReport',
+    },
+    
+    navbar: {
+    	'questions' : {'icon' : '.questionsView', 'available' : 'img/icon_edit.svg', 'selected' : 'img/icon_edit_on.svg'},
+    	'treatments' : {'icon' : '.treatmentsView', 'available' : 'img/icon_treatment.svg', 'selected' : 'img/icon_treatment_on.svg'},
+    	'reports' :  {'icon' : '.reportsView', 'available' : 'img/icon_reports_history.svg', 'selected' : 'img/icon_reports_history_on.svg'}
     },
 
     /**
@@ -39,6 +46,7 @@ var AppView = Backbone.View.extend({
         _.bindAll(this, "getNextQuestion", "showEndScreen", "showReport", "showTreatments", "hideAllContainers");
 
         var that = this;
+        this.setNavbarState('questions');
         this.questionCollection = options.questionCollection;
         this.pastTreatments = options.pastTreatments;
         this.currentTreatments = options.currentTreatments;
@@ -53,6 +61,7 @@ var AppView = Backbone.View.extend({
     * @param event - jQuery Event
     */
     getNextQuestion: function(event) {
+    	this.setNavbarState('questions');
         //Save the current one
         if (this.currQuestion !== null) {
             this.currQuestion.saveToLocal(this.timestamp);
@@ -91,8 +100,7 @@ var AppView = Backbone.View.extend({
     * Shows the report section
     */
     showReport: function(event) {
-
-
+    	this.setNavbarState('reports');
         if (this.currView != this.questionResultsContainer) {
             var $resultContainer = this.$(this.questionResultsContainer);
             //Just show the report if it has been calculated
@@ -125,6 +133,7 @@ var AppView = Backbone.View.extend({
     },
 
     showTreatments :function(){
+    	this.setNavbarState('treatments');
     	this.hideAllContainers();
         this.$(this.treatmentsContainer).show();
         this.currView = this.treatmentsContainer;
@@ -140,7 +149,16 @@ var AppView = Backbone.View.extend({
         this.$('footer').hide();
         this.$(this.questionContainer).hide();
         this.$(this.questionResultsContainer).hide();
+    },
+    
+    setNavbarState : function(selected) {
+    	this.$(this.navbar.questions.icon).attr('src', this.navbar.questions.available);
+    	this.$(this.navbar.reports.icon).attr('src', this.navbar.reports.available);
+    	this.$(this.navbar.treatments.icon).attr('src', this.navbar.treatments.available);
+    	this.$(this.navbar[selected].icon).attr('src', this.navbar[selected].selected);
     }
+    
+    
 
 
 

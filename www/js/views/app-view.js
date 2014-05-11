@@ -12,7 +12,6 @@ var AppView = Backbone.View.extend({
 
     questionCollection: null,
     currentTreatments: null,
-    currentTreatments: null,
     pastTreatments: null,
     questionContainer: '.questionContainer',
     treatmentsContainer: '.treatmentsContainer',
@@ -37,7 +36,7 @@ var AppView = Backbone.View.extend({
     initialize : function(options) {
 
         //Bind this to the following functions
-        _.bindAll(this, "getNextQuestion", "showEndScreen", "showReport", "hideAllContainers");
+        _.bindAll(this, "getNextQuestion", "showEndScreen", "showReport", "showTreatments", "hideAllContainers");
 
         var that = this;
         this.questionCollection = options.questionCollection;

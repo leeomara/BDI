@@ -13,6 +13,7 @@ var AppView = Backbone.View.extend({
     questionCollection: null,
     questionContainer: '.questionContainer',
     allDoneTemplate: '#doneTemplate',
+    appContainer: '.appContainer',
     timestamp: null,
     currQuestion: null,
     events:{
@@ -67,7 +68,7 @@ var AppView = Backbone.View.extend({
     showEndScreen: function() {
         var templater = $(this.allDoneTemplate).html();
         var rendered = Mustache.to_html(templater, {});
-        this.$el.html(rendered);
+        this.$(this.appContainer).html(rendered);
         return this;
     }
 

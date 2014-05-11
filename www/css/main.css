@@ -140,13 +140,22 @@ div.questionResult {
 	border-top-style: solid;
 	border-top-width: 3px;
 	margin-top: 1em;
-	padding-top: 10px; 
+	padding-top: 10px;
 }
 
 .questionResult:FIRST-CHILD {
-	border-style: none;
-	margin-top: -20px;
-	padding-top:0px;
+
+}
+
+.questionResultsContainer{
+  margin-top: -35px;
+  padding-top:0px;
+}
+
+.questionResultsContainer div:FIRST-CHILD{
+  /*border-style: none;
+  margin-top: -20px;
+  padding-top:0px;*/
 }
 
 .questionCurrentResult {
@@ -160,14 +169,14 @@ div.questionResult {
 }
 
 .separator {
-	color: #00A69C;	
-	background-color: #00A69C;	
+	color: #00A69C;
+	background-color: #00A69C;
 	border-color: #00A69C;
 }
 
 .comparisons .separator {
-	color: #A6A8AB;	
-	background-color: #A6A8AB;	
+	color: #A6A8AB;
+	background-color: #A6A8AB;
 	border-color: #A6A8AB;
 	margin: 5px;
 }
@@ -182,12 +191,12 @@ div.questionResult {
 
 .worse {
 	background-color: #DC777F;
-	color: white; 
+	color: white;
 }
 
 .improved {
 	background-color: #99BC86;
-	color: white; 
+	color: white;
 }
 
 span.changeValue {

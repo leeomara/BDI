@@ -60,7 +60,7 @@ Question = Backbone.Model.extend({
         var data =  this.get('data');
         var dataObj = {};
         dataObj['timestamp'] = Timestamp;
-        dataObj['value'] = this.get('value');;
+        dataObj['value'] = parseInt(this.get('value'));
         data.push(dataObj);
         var stringify = JSON.stringify(data);
         //Get the date
@@ -113,7 +113,26 @@ Question = Backbone.Model.extend({
 
         var afterAverage = this.findAverage(timestampAfter);
 
-        var diff = (afterAverage - beforeAverage);
+        var diff;
+
+        if (afterAverage > beforeAverage) {
+            diff = (afterAverage/beforeAverage);
+        }
+        else{
+            diff = (beforeAverage/afterAverage);
+        }
+
+        //
+        if (afterAverage == 0){
+            diff = (0 - beforeAverage)*100;
+        }
+
+        if (beforeAverage == 0){
+            diff = (afterAverage)*100;
+        }
+
+
+        diff = parseFloat(diff).toFixed(0);
         return diff;
 
     },

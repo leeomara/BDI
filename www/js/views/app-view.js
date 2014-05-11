@@ -15,15 +15,16 @@ var AppView = Backbone.View.extend({
     currentTreatments: null,
     pastTreatments: null,
     questionContainer: '.questionContainer',
-    allDoneTemplate: '#doneTemplate',
     appContainer: '.appContainer',
+    endContainer: '.endContainer',
     questionResultsContainer: '.questionResultsContainer',
     timestamp: null,
     currQuestion: null,
     reportsCalculated: false,
+    currView: '.questionContainer',
     events:{
         'click .next': 'getNextQuestion',
-        'click .report': 'showReport'
+        'click .report': 'showReport',
     },
 
     /**
@@ -74,9 +75,11 @@ var AppView = Backbone.View.extend({
     * Show the final screen
     */
     showEndScreen: function() {
-        var templater = $(this.allDoneTemplate).html();
-        var rendered = Mustache.to_html(templater, {});
-        this.$(this.appContainer).html(rendered);
+        this.hideAllContainers();
+        this.$(this.endContainer).show();
+
+        this.$('footer').hide();
+        this.currView = this.endContainer;
         return this;
     },
 
@@ -88,22 +91,37 @@ var AppView = Backbone.View.extend({
     */
     showReport: function(event) {
 
-        var $resultContainer = this.$(this.questionResultsContainer);
-        //Just show the report if it has been calculated
-        if (!this.reportsCalculated) {
 
-            var twoWeeks = moment().subtract('days', 14);
-            //Go through and calculate the analytics
-            this.questionCollection.each(function(question){
-                question.calculateResults(0,twoWeeks.valueOf());
-                var resultView = new ResultView({model:question});
-                $resultContainer.append(resultView.render().el);
-            });
-            this.reportsCalculated = true;
+        if (this.currView != this.questionResultsContainer) {
+            var $resultContainer = this.$(this.questionResultsContainer);
+            //Just show the report if it has been calculated
+            if (!this.reportsCalculated) {
+
+                var twoWeeks = moment().subtract('days', 14);
+                //Go through and calculate the analytics
+                this.questionCollection.each(function(question){
+                    // question.calculateResults(1399782707164,twoWeeks.valueOf());
+                    question.calculateResults(1399782707164,1399828159068);
+
+                    var resultView = new ResultView({model:question});
+                    $resultContainer.append(resultView.render().el);
+                });
+                this.reportsCalculated = true;
+            }
+            this.hideAllContainers();
+            $resultContainer.show();
+            this.currView = this.questionResultsContainer;
         }
-        this.hideAllContainers();
-        $resultContainer.show();
+        else{
+            this.hideAllContainers();
+            this.$('footer').show();
+            this.$(this.questionContainer).show();
+            this.currView = this.questionContainer;
+        }
+
     },
+
+
 
 
     /**

@@ -25,9 +25,11 @@
                 </div>
             </div>
         </nav>
+
         <div class="appContainer">
             <div class="container">
                 <div class="questionContainer"></div>
+                <div class="questionResultsContainer" style="display:none"></div>
             </div>
 
             <footer>
@@ -36,6 +38,8 @@
                 </div>
             </footer>
         </div>
+
+
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
@@ -163,6 +167,20 @@
                 </form>
             </div>
         </script>
+
+		<script id="questionResultsTemplate" type="html/template">
+			<div class="row questionResult">
+				<h2 class="questionShortText">Average Pain</h2>
+	           	<div class="col-xs-6 questionCurrentResult">
+	            	<span class="questionAverageResult">6.4</span>
+	            </div>
+	            <div class="col-xs-6 comparisons" >
+		        	<div class="improved"><span class="glyphicon glyphicon-time"></span><span class="glyphicon glyphicon-arrow-up"></span><span class="changeValue">0.4</span></div>
+		           	<hr class="separator" />
+		           	<div class="worse"><span class="glyphicon glyphicon-glass"></span><span class="glyphicon glyphicon-arrow-down"></span><span class="changeValue">1.4</span></div>
+	           	</div>
+	        </div>
+		</script>
 
         <script id="doneTemplate" type="html/template">
             <div class="animated fadeInRight">

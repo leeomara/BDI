@@ -15,6 +15,7 @@ var AppView = Backbone.View.extend({
     currentTreatments: null,
     pastTreatments: null,
     questionContainer: '.questionContainer',
+    treatmentsContainer: '.treatmentsContainer',
     appContainer: '.appContainer',
     endContainer: '.endContainer',
     questionResultsContainer: '.questionResultsContainer',
@@ -122,6 +123,11 @@ var AppView = Backbone.View.extend({
 
     },
 
+    showTreatments :function(){
+    	this.hideAllContainers();
+        this.$(this.treatmentsContainer).show();
+        this.currView = this.treatmentsContainer;
+    },
 
 
 

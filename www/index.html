@@ -19,9 +19,9 @@
                 </div>
 
                 <div class="navbar-text pull-right">
-                	<img class="icon icon-questions questionsView" src="img/icon_edit.png">
-                    <img class="icon icon-treatment treatmentsView" src="img/icon_treatment_on.png">
-                    <img class="icon icon-reports reportsView" src="img/icon_reports_history_on.png">
+                	<img class="icon icon-questions questionsView" src="img/icon_edit_white.png">
+                    <img class="icon icon-treatment treatmentsView" src="img/icon_rx_teal.png">
+                    <img class="icon icon-reports reportsView" src="img/icon_history_teal.png">
                 </div>
             </div>
         </nav>
@@ -197,6 +197,22 @@
                 }
             ];
             $(function() {
+
+
+                localStorage.setItem('question-1','[{"timestamp":1399777811402,"value":6},{"timestamp":1399778076555,"value":5},{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":4},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":7},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":7},{"timestamp":1399783501465,"value":8},{"timestamp":1399827034738,"value":7},{"timestamp":1399827075627,"value":6},{"timestamp":1399827096942,"value":6},{"timestamp":1399827107897,"value":6},{"timestamp":1399827215241,"value":6},{"timestamp":1399828126299,"value":6},{"timestamp":1399828159068,"value":6},{"timestamp":1399828824539,"value":5},{"timestamp":1399829008745,"value":5},{"timestamp":1399829797304,"value":6},{"timestamp":1399831055890,"value":7},{"timestamp":1399831111163,"value":6},{"timestamp":1399834288572,"value":7}]');
+                localStorage.setItem('question-10','[{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":2},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":5},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":5},{"timestamp":1399783501465,"value":5}]');
+                localStorage.setItem('question-11', '[{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":2},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":5},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":5},{"timestamp":1399783501465,"value":5}]');
+                localStorage.setItem('question-12','[{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":7},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":5},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":5},{"timestamp":1399783501465,"value":5}]');
+                localStorage.setItem('question-13','[{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":5},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":5},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":5},{"timestamp":1399783501465,"value":5}]');
+                localStorage.setItem('question-2','[{"timestamp":1399778076555,"value":3},{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":7},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":5},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":5},{"timestamp":1399783501465,"value":5},{"timestamp":1399827034738,"value":5},{"timestamp":1399827075627,"value":6},{"timestamp":1399827096942,"value":6},{"timestamp":1399827107897,"value":7},{"timestamp":1399827215241,"value":6},{"timestamp":1399828159068,"value":5},{"timestamp":1399828824539,"value":5},{"timestamp":1399829008745,"value":5},{"timestamp":1399829797304,"value":5},{"timestamp":1399831055890,"value":4}]');
+                localStorage.setItem('question-3','[{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":2},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":5},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":5},{"timestamp":1399783501465,"value":5},{"timestamp":1399827034738,"value":5},{"timestamp":1399828824539,"value":5},{"timestamp":1399831055890,"value":7}]');
+                localStorage.setItem('question-4','[{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":7},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":5},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":5},{"timestamp":1399783501465,"value":5},{"timestamp":1399831055890,"value":7}]');
+                localStorage.setItem('question-5','[{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":8},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":5},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":5},{"timestamp":1399783501465,"value":5}]');
+                localStorage.setItem('question-7','[{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":3},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":5},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":5},{"timestamp":1399783501465,"value":5}]');
+                localStorage.setItem('question-8','[{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":7},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":5},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":5},{"timestamp":1399783501465,"value":5}]');
+                localStorage.setItem('question-9','[{"timestamp":1399782144502,"value":5},{"timestamp":1399782200737,"value":9},{"timestamp":1399782302954,"value":5},{"timestamp":1399782676653,"value":5},{"timestamp":1399782707164,"value":5},{"timestamp":1399782737900,"value":5},{"timestamp":1399783162314,"value":5},{"timestamp":1399783501465,"value":5}]');
+
+
                 var questionCollection = new QuestionsCollection(questions);
                 var pastTreatments = new PastTreatmentCollection();
                 pastTreatments.loadFromLocal();
@@ -234,9 +250,10 @@
 	            </div>
 	            <div class="col-xs-6 comparisons" >
 
-		        	<div class="{{#avgTimeChanged}}{{^avgTimeUp}}improved{{/avgTimeUp}}{{#avgTimeUp}}worse{{/avgTimeUp}}{{/avgTimeChanged}}{{^avgTimeChanged}}noChange{{/avgTimeChanged}}"><span class="glyphicon glyphicon-time"></span>{{#avgTimeChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTimeUp}}up{{/avgTimeUp}}{{^avgTimeUp}}down{{/avgTimeUp}}"></span>{{/avgTimeChanged}}<span class="changeValue">{{avgTime}}</span></div>
+		        	<div class="{{#avgTimeChanged}}{{^avgTimeUp}}improved{{/avgTimeUp}}{{#avgTimeUp}}worse{{/avgTimeUp}}{{/avgTimeChanged}}{{^avgTimeChanged}}noChange{{/avgTimeChanged}}"><span class="glyphicon glyphicon-time"></span>{{#avgTimeChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTimeUp}}up{{/avgTimeUp}}{{^avgTimeUp}}down{{/avgTimeUp}}"></span>{{/avgTimeChanged}}<span class="changeValue">{{avgTime}}%</span></div>
 		           	<hr class="separator" />
-		           	<div class="{{#avgTreatmentChanged}}{{^avgTreatmentUp}}improved{{/avgTreatmentUp}}{{#avgTreatmentUp}}worse{{/avgTreatmentUp}}{{/avgTreatmentChanged}}{{^avgTreatmentChanged}}noChange{{/avgTreatmentChanged}}"><img class="icon icon-treatment report" src="img/icon_treatment.svg">{{#avgTreatmentChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTreatmentUp}}up{{/avgTreatmentUp}}{{^avgTreatmentUp}}down{{/avgTreatmentUp}}"></span>{{/avgTreatmentChanged}}<span class="changeValue">{{avgTreatment}}</span></div>
+		           	<div class="{{#avgTreatmentChanged}}{{^avgTreatmentUp}}improved{{/avgTreatmentUp}}{{#avgTreatmentUp}}worse{{/avgTreatmentUp}}{{/avgTreatmentChanged}}{{^avgTreatmentChanged}}noChange{{/avgTreatmentChanged}}"><img class="icon icon-treatment report" src="img/icon_treatment.svg">{{#avgTreatmentChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTreatmentUp}}up{{/avgTreatmentUp}}{{^avgTreatmentUp}}down{{/avgTreatmentUp}}"></span>{{/avgTreatmentChanged}}<span class="changeValue">{{avgTreatment}}%</span></div>
+
 	           	</div>
 	        </div>
 		</script>

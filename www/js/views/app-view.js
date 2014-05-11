@@ -30,9 +30,9 @@ var AppView = Backbone.View.extend({
     },
 
     navbar: {
-    	'questions' : {'icon' : '.questionsView', 'available' : 'img/icon_edit_on.svg', 'selected' : 'img/icon_edit.svg'},
-    	'treatments' : {'icon' : '.treatmentsView', 'available' : 'img/icon_treatment_on.svg', 'selected' : 'img/icon_treatment.svg'},
-    	'reports' :  {'icon' : '.reportsView', 'available' : 'img/icon_reports_history_on.svg', 'selected' : 'img/icon_reports_history.svg'}
+    	'questions' : {'icon' : '.questionsView', 'available' : 'img/icon_edit_on.png', 'selected' : 'img/icon_edit.png'},
+    	'treatments' : {'icon' : '.treatmentsView', 'available' : 'img/icon_treatment_on.png', 'selected' : 'img/icon_treatment.png'},
+    	'reports' :  {'icon' : '.reportsView', 'available' : 'img/icon_reports_history_on.png', 'selected' : 'img/icon_reports_history.png'}
     },
 
     /**

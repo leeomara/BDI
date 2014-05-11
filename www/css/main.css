@@ -194,5 +194,50 @@ span.changeValue {
 	padding-left: 0.5em;
 }
 
+div.treatmentText {
+	display: inline-block;
+	font-size: 1.2em;
+	width:90%;
+	padding-right: 0.5em;
+}
+
+textarea.treatmentText {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	padding-right: 5px
+}
+
+.addTreatment {
+	margin-bottom: 1em;
+}
+
+.treatmentPeriod{
+	margin-top: 0.5em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+.treatmentPeriod:FIRST-CHILD{
+	margin-top: -20px;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+
+.addbutton {
+	background-color: #58923A;
+	color:white;
+}
+
+
+.removeTreatment {
+	height: 24px;
+	width: 24px;
+	display: inline-block;
+	background-image: url(../img/Icon_Red_Delete.svg);
+	background-repeat: no-repeat;
+	background-size: 24px 24px;
+	background-position:center; 
+	float:right;
+}
 
 

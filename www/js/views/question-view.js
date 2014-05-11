@@ -63,7 +63,8 @@ var QuestionView = Backbone.View.extend({
             + ')'
         );
 
-        this.$('.value').html($range.val() );
+        this.$('.value').html($range.val());
+        this.model.set('value', $range.val());
     }
 
 

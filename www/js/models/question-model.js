@@ -11,46 +11,47 @@ Question = Backbone.Model.extend({
   defaults: {
     "name":  null,
     "type": null,
-    "value":   null,
+    "value": 5,
     "seen": false
   },
+
+  key: 'question-',
 
   /**
    * initialize
    * Called after the constructor.
    */
   initialize: function () {
-    // //If we have a name then we want to grab the value
-    // if (this.get("name") != undefined &&  this.get("name") !== null){
-    //   if (this.get("isShown") === null){
-    //     //Check local storage for a value
-    //     var isShown = localStorage.getItem(this.get("name")+this.isShownKey);
-    //     if (isShown === null){
-    //       isShown = false
+    this.loadFromLocal();
+  },
 
-    //     }
-    //     //Reset string true false to their native
-    //     if (isShown == 'true'){
-    //         isShown = true;
-    //     }
-    //     if (isShown == 'false'){
-    //       isShown = false;
-    //     }
-    //     this.set("isShown",isShown);
-    //   }
-    // }
 
+  /**
+   * loadFromLocal
+   * Loads the value to local storage
+   */
+  loadFromLocal:function() {
+    var data = localStorage.getItem(this.key+this.get('id'));
+    if (data !== null){
+      data = JSON.parse(data);
+    }else{
+      data = {};
+    }
+    this.set('data',data);
   },
 
   /**
    * saveToLocal
    * Saves the value to local storage
+   * @param Timestamp - Timestamp fo the session
    */
-  saveToLocal:function(SessionDate){
+  saveToLocal:function(Timestamp){
 
-    //TODO
+    var data =  this.get('data');
+    data[Timestamp] = this.get('value');
+    var stringify = JSON.stringify(data);
     //Get the date
-    localStorage.setItem(this.get("name")+this.isShownKey, this.get("isShown"));
+    localStorage.setItem(this.key+this.get('id'), stringify);
   }
 
 

@@ -56,7 +56,10 @@
         <script type="text/javascript" src="js/lib/backbone-min.js"></script>
         <script type="text/javascript" src="js/lib/mustache.min.js"></script>
         <script type="text/javascript" src="js/models/question-model.js"></script>
+        <script type="text/javascript" src="js/models/treatment-model.js"></script>
         <script type="text/javascript" src="js/collections/question-collection.js"></script>
+        <script type="text/javascript" src="js/collections/current-treatment-collection.js"></script>
+        <script type="text/javascript" src="js/collections/past-treatment-collection.js"></script>
         <script type="text/javascript" src="js/views/question-view.js"></script>
         <script type="text/javascript" src="js/views/app-view.js"></script>
         <script type="text/javascript">
@@ -97,57 +100,50 @@
                     'max': 'Complete Relief',
                 },
                 {
-                    'id': 6,
-                    'text': 'In the last 24 hours, how much relief have pain treatments or medications provided?',
-                    'type': 'range',
-                    'min': 'No Relief',
-                    'max': 'Complete Relief',
-                },
-                {
                     'id': 7,
-                    'text': 'During the past 24 hours, pain has interfered with your General activity:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your General activity:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 8,
-                    'text': 'During the past 24 hours, pain has interfered with your Mood:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Mood:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 9,
-                    'text': 'During the past 24 hours, pain has interfered with your Walking ability:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Walking ability:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 10,
-                    'text': 'During the past 24 hours, pain has interfered with your Normal work (includes both work outside the home and housework):',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Normal work (includes both work outside the home and housework):',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 11,
-                    'text': 'During the past 24 hours, pain has interfered with your relations with other people:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Relations with other people:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 12,
-                    'text': 'During the past 24 hours, pain has interfered with your Sleep:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Sleep:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 13,
-                    'text': 'During the past 24 hours, pain has interfered with your Enjoyment of life:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Enjoyment of life:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
@@ -155,7 +151,11 @@
             ];
             $(function() {
                 var questionCollection = new QuestionsCollection(questions);
-                app = new AppView({'questionCollection':questionCollection, el:$('.app')});
+                var pastTreatments = new PastTreatmentCollection();
+                // pastTreatments.loadFromLocal();
+                var currentTreatments = new CurrentTreatmentCollection();
+                // currentTreatments.loadFromLocal();
+                app = new AppView({'questionCollection':questionCollection, 'currentTreatments': currentTreatments, 'pastTreatments':pastTreatments, el:$('.app')});
                 app.getNextQuestion();
             });
         </script>

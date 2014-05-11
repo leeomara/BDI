@@ -13,6 +13,8 @@ var AppView = Backbone.View.extend({
     questionCollection: null,
     questionContainer: '.questionContainer',
     allDoneTemplate: '#doneTemplate',
+    timestamp: null,
+    currQuestion: null,
     events:{
         'click .next': 'getNextQuestion'
     },
@@ -29,6 +31,7 @@ var AppView = Backbone.View.extend({
 
         var that = this;
         this.questionCollection = options.questionCollection;
+        this.timestamp = new Date().getTime();
 
     },
 
@@ -39,12 +42,16 @@ var AppView = Backbone.View.extend({
     * @param event - jQuery Event
     */
     getNextQuestion: function(event) {
-        var question = this.questionCollection.getNextQuestion();
-        if (question === null) {
+        //Save the current one
+        if (this.currQuestion !== null) {
+            this.currQuestion.saveToLocal(this.timestamp);
+        }
+        this.currQuestion = this.questionCollection.getNextQuestion();
+        if (this.currQuestion === null) {
             this.showEndScreen();
         }
         else{
-            var questionView = new QuestionView({model:question});
+            var questionView = new QuestionView({model:this.currQuestion});
             var el = questionView.render().el;
 
             var $questionContainer = this.$(this.questionContainer);

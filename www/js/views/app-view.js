@@ -11,6 +11,9 @@ var AppView = Backbone.View.extend({
 
 
     questionCollection: null,
+    currentTreatments: null,
+    currentTreatments: null,
+    pastTreatments: null,
     questionContainer: '.questionContainer',
     allDoneTemplate: '#doneTemplate',
     appContainer: '.appContainer',
@@ -32,6 +35,8 @@ var AppView = Backbone.View.extend({
 
         var that = this;
         this.questionCollection = options.questionCollection;
+        this.pastTreatments = options.pastTreatments;
+        this.currentTreatments = options.currentTreatments;
         this.timestamp = new Date().getTime();
 
     },

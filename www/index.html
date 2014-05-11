@@ -26,6 +26,7 @@
             </div>
         </nav>
 
+
         <div class="appContainer">
             <div class="container">
                 <div class="questionContainer"></div>
@@ -143,9 +144,9 @@
             $(function() {
                 var questionCollection = new QuestionsCollection(questions);
                 var pastTreatments = new PastTreatmentCollection();
-                // pastTreatments.loadFromLocal();
+                pastTreatments.loadFromLocal();
                 var currentTreatments = new CurrentTreatmentCollection();
-                // currentTreatments.loadFromLocal();
+                currentTreatments.loadFromLocal();
                 app = new AppView({'questionCollection':questionCollection, 'currentTreatments': currentTreatments, 'pastTreatments':pastTreatments, el:$('.app')});
                 app.getNextQuestion();
             });

@@ -24,7 +24,8 @@ var AppView = Backbone.View.extend({
     currView: '.questionContainer',
     events:{
         'click .next': 'getNextQuestion',
-        'click .report': 'showReport',
+        'click .treatmentsView': 'showTreatments',
+        'click .reportView': 'showReport',
     },
 
     /**
@@ -95,7 +96,7 @@ var AppView = Backbone.View.extend({
         if (this.currView != this.questionResultsContainer) {
             var $resultContainer = this.$(this.questionResultsContainer);
             //Just show the report if it has been calculated
-            if (!this.reportsCalculated) {
+            if (!this.reportsCalculated) { // Shows Reports Screen
 
                 var twoWeeks = moment().subtract('days', 14);
                 //Go through and calculate the analytics
@@ -112,7 +113,7 @@ var AppView = Backbone.View.extend({
             $resultContainer.show();
             this.currView = this.questionResultsContainer;
         }
-        else{
+        else{ // Shows Questionaire Screen
             this.hideAllContainers();
             this.$('footer').show();
             this.$(this.questionContainer).show();

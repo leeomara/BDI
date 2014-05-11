@@ -24,11 +24,11 @@ var AppView = Backbone.View.extend({
     currView: '.questionContainer',
     events:{
         'click .next': 'getNextQuestion',
-        'click .questionsView': 'getNextQuestion',
+        'click .questionsView': 'showQuestionView',
         'click .treatmentsView': 'showTreatments',
         'click .reportsView': 'showReport',
     },
-    
+
     navbar: {
     	'questions' : {'icon' : '.questionsView', 'available' : 'img/icon_edit_on.svg', 'selected' : 'img/icon_edit.svg'},
     	'treatments' : {'icon' : '.treatmentsView', 'available' : 'img/icon_treatment_on.svg', 'selected' : 'img/icon_treatment.svg'},
@@ -43,7 +43,7 @@ var AppView = Backbone.View.extend({
     initialize : function(options) {
 
         //Bind this to the following functions
-        _.bindAll(this, "getNextQuestion", "showEndScreen", "showReport", "showTreatments", "hideAllContainers");
+        _.bindAll(this, "getNextQuestion", "showEndScreen", "showReport", "showTreatments", "hideAllContainers", "showQuestionView");
 
         var that = this;
         this.setNavbarState('questions');
@@ -62,7 +62,7 @@ var AppView = Backbone.View.extend({
                 sameElse : 'L'
             }
         });
-        
+
     },
 
 
@@ -102,6 +102,21 @@ var AppView = Backbone.View.extend({
         this.$('footer').hide();
         this.currView = this.endContainer;
         return this;
+    },
+
+
+    showQuestionView: function(event) {
+        this.setNavbarState('questions');
+        if (this.currView == this.endContainer) {
+            this.showEndScreen();
+        }
+        else{
+            this.hideAllContainers();
+            this.$(this.questionContainer).show();
+
+            this.$('footer').show();
+            this.currView = this.questionContainer;
+        }
     },
 
 
@@ -150,8 +165,6 @@ var AppView = Backbone.View.extend({
         this.currView = this.treatmentsContainer;
     },
 
-
-
     /**
     * hideAllContainers
     * Hides all of the containers
@@ -163,15 +176,15 @@ var AppView = Backbone.View.extend({
         this.$(this.treatmentsContainer).hide();
         this.$(this.questionResultsContainer).hide();
     },
-    
+
     setNavbarState : function(selected) {
     	this.$(this.navbar.questions.icon).attr('src', this.navbar.questions.available);
     	this.$(this.navbar.reports.icon).attr('src', this.navbar.reports.available);
     	this.$(this.navbar.treatments.icon).attr('src', this.navbar.treatments.available);
     	this.$(this.navbar[selected].icon).attr('src', this.navbar[selected].selected);
     }
-    
-    
+
+
 
 
 

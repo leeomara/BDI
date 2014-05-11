@@ -42,7 +42,7 @@
                 <div class="treatmentsContainer" style="display:none">
               	 	<div class="row treatmentPeriod">
 	            		<h2 class="date">Today</h2>
-					
+
 	            		<div class="input-group input-group-lg addTreatment">
 	      					<textarea class="form-control treatmentText" name="treatmentText" ></textarea>
 	      					<span class="input-group-btn">
@@ -101,64 +101,64 @@
                     'text': 'Please rate your pain at its WORST in the last 24 hours.',
                     'avgShort': 'Average Pain',
                     'type': 'range',
-                    'min': 'No pain',
-                    'max': 'Extreme pain',
+                    'min': 'None',
+                    'max': 'Extreme',
                 },
                 {
                     'id': 2,
                     'text': 'Please rate your pain at its LEAST in the last 24 hours.',
                     'avgShort': 'Least Pain',
                     'type': 'range',
-                    'min': 'No pain',
-                    'max': 'Extreme pain',
+                    'min': 'None',
+                    'max': 'Extreme',
                 },
                 {
                     'id': 3,
                     'text': 'Please rate your pain on the AVERAGE.',
                     'avgShort': 'Worst Pain',
                     'type': 'range',
-                    'min': 'No pain',
-                    'max': 'Extreme pain',
+                    'min': 'None',
+                    'max': 'Extreme',
                 },
                 {
                     'id': 4,
                     'text': 'How much pain you have RIGHT NOW.',
                     'avgShort': 'Pain Right Now',
                     'type': 'range',
-                    'min': 'No pain',
-                    'max': 'Extreme pain',
+                    'min': 'None',
+                    'max': 'Extreme',
                 },
                 {
                     'id': 5,
                     'text': 'In the last 24 hours, how much relief have pain treatments or medications provided?',
                     'avgShort': 'Pain Relief',
                     'type': 'range',
-                    'min': 'No relief',
-                    'max': 'Complete relief',
+                    'min': 'None',
+                    'max': 'Completely',
                 },
                 {
                     'id': 7,
                     'text': 'During the past 24 hours, how much has pain interfered with your General activity:',
                     'type': 'range',
                     'avgShort': 'General Activity',
-                    'min': 'No interference',
-                    'max': 'Complete interference',
+                    'min': 'None',
+                    'max': 'Completely',
                 },
                 {
                     'id': 8,
                     'text': 'During the past 24 hours, how much has pain interfered with your Mood:',
                     'type': 'range',
                     'avgShort': 'Mood',
-                    'min': 'No interference',
-                    'max': 'Complete interference',
+                    'min': 'None',
+                    'max': 'Completely',
                 },
                 {
                     'id': 9,
                     'text': 'During the past 24 hours, how much has pain interfered with your Walking ability:',
                     'type': 'range',
                     'avgShort': 'Walking',
-                    'min': 'No interference',
-                    'max': 'Complete interference',
+                    'min': 'None',
+                    'max': 'Completely',
                 },
                 {
                     'id': 10,
@@ -166,8 +166,8 @@
                     'type': 'range',
                     'avgShort': 'Normal Work',
 
-                    'min': 'No interference',
-                    'max': 'Complete interference',
+                    'min': 'None',
+                    'max': 'Completely',
                 },
                 {
                     'id': 11,
@@ -175,16 +175,16 @@
                     'type': 'range',
                     'avgShort': 'Relations',
 
-                    'min': 'No interference',
-                    'max': 'Complete interference',
+                    'min': 'None',
+                    'max': 'Completely',
                 },
                 {
                     'id': 12,
                     'text': 'During the past 24 hours, how much has pain interfered with your Sleep:',
                     'type': 'range',
                     'avgShort': 'Sleep',
-                    'min': 'No interference',
-                    'max': 'Complete interference',
+                    'min': 'None',
+                    'max': 'Completely',
                 },
                 {
                     'id': 13,
@@ -192,8 +192,8 @@
                     'type': 'range',
                     'avgShort': 'Enjoyment of Life',
 
-                    'min': 'No interference',
-                    'max': 'Complete interference',
+                    'min': 'None',
+                    'max': 'Completely',
                 }
             ];
             $(function() {
@@ -216,8 +216,8 @@
                         <div class="range-input clearfix">
                             <p class="value">5</p>
                             <input type="range" min="0" max="10" value="5" class="form-input input-lg">
-                            <span class="pull-left label label-default">0 - {{ min }}</span>
-                            <span class="pull-right label label-default">{{ max }} - 10</span>
+                            <span class="pull-left label label-default margeiner">0 - {{ min }}</span>
+                            <span class="pull-right label label-default margeiner">{{ max }} - 10</span>
                         </div>
                     </div>
                 </form>
@@ -233,14 +233,16 @@
 	            	<span class="questionAverageResult">{{avg}}</span>
 	            </div>
 	            <div class="col-xs-6 comparisons" >
-		        	<div class="{{#avgTimeChanged}}{{^avgTimeUp}}improved{{/avgTimeUp}}{{#avgTimeUp}}worse{{/avgTimeUp}}{{/avgTimeChanged}}{{^avgTimeChanged}}noChange{{/avgTimeChanged}}"><span class="glyphicon glyphicon-time"></span>{{#avgTimeChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTimeUp}}up{{/avgTimeUp}}{{^avgTimeUp}}down{{/avgTimeUp}}"></span>{{/avgTimeChanged}}<span class="changeValue">{{avgTime}}</span></div>
+
+		        	<div class="{{^avgTimeUp}}improved{{/avgTimeUp}}{{#avgTimeUp}}worse{{/avgTimeUp}}"><span class="glyphicon glyphicon-time"></span>{{#avgTimeChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTimeUp}}up{{/avgTimeUp}}{{^avgTimeUp}}down{{/avgTimeUp}}"></span>{{/avgTimeChanged}}<span class="changeValue">{{avgTime}}%</span></div>
 		           	<hr class="separator" />
-		           	<div class="{{#avgTreatmentChanged}}{{^avgTreatmentUp}}improved{{/avgTreatmentUp}}{{#avgTreatmentUp}}worse{{/avgTreatmentUp}}{{/avgTreatmentChanged}}{{^avgTreatmentChanged}}noChange{{/avgTreatmentChanged}}"><img class="icon icon-treatment report" src="img/icon_treatment.svg">{{#avgTreatmentChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTreatmentUp}}up{{/avgTreatmentUp}}{{^avgTreatmentUp}}down{{/avgTreatmentUp}}"></span>{{/avgTreatmentChanged}}<span class="changeValue">{{avgTreatment}}</span></div>
+		           	<div class="{{^avgTreatmentUp}}improved{{/avgTreatmentUp}}{{#avgTreatmentUp}}worse{{/avgTreatmentUp}}"><img class="icon icon-treatment report" src="img/icon_treatment.svg">{{#avgTreatmentChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTreatmentUp}}up{{/avgTreatmentUp}}{{^avgTreatmentUp}}down{{/avgTreatmentUp}}"></span>{{/avgTreatmentChanged}}<span class="changeValue">{{avgTreatment}}%</span></div>
 	           	</div>
 	        </div>
 		</script>
-		
+
 		<script id="treatmentTemplate" type="html/template">
+
 			<div class="row treatmentPeriod">
             	<h2 class="date">{{niceDate}}</h2>
 				{{#isCurrent}}
@@ -272,6 +274,6 @@
             		</div>
             	</div>
 		</script>
-		
+
     </body>
 </html>

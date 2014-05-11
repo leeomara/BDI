@@ -124,3 +124,75 @@ input[type="range"]::-webkit-slider-thumb {
     height: 26px;
     border-radius: 13px;
 }
+
+
+
+div.questionResult {
+	border-top-color: #00A69C;
+	border-top-style: solid;
+	border-top-width: 3px;
+	margin-top: 1em;
+	padding-top: 10px; 
+}
+
+.questionResult:FIRST-CHILD {
+	border-style: none;
+	margin-top: -20px;
+	padding-top:0px;
+}
+
+.questionCurrentResult {
+	text-align: center;
+}
+
+.questionAverageResult {
+	font-size: 100px;
+	vertical-align: top;
+	line-height: 100px;
+}
+
+.separator {
+	color: #00A69C;	
+	background-color: #00A69C;	
+	border-color: #00A69C;
+}
+
+.comparisons .separator {
+	color: #A6A8AB;	
+	background-color: #A6A8AB;	
+	border-color: #A6A8AB;
+	margin: 5px;
+}
+
+.comparisons div {
+	height: 50%;
+	font-size: 30px;
+  	text-align: center;
+  	line-height: 50px;
+  	border-radius: 5px;
+}
+
+.worse {
+	background-color: #DC777F;
+	color: white; 
+}
+
+.improved {
+	background-color: #99BC86;
+	color: white; 
+}
+
+span.changeValue {
+	margin-left:0.25em;
+	display: inline-block;
+  	vertical-align: top;
+  	font-size: 35px;
+}
+
+.questionShortText {
+	margin-top: 0px;
+	padding-left: 0.5em;
+}
+
+
+

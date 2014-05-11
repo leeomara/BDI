@@ -7,6 +7,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/roboto.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <title>relievR</title>
     </head>
@@ -14,72 +15,40 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <div class="pull-left">
-                    <a class="navbar-brand" href="#">relievR</a>
+                    <a class="navbar-brand" href="#"><img class="logo" src="img/logo_UI_relievR_2.svg"></a>
                 </div>
 
                 <div class="navbar-text pull-right">
-                    <button class="btn btn-sm btn-default no-border"><span class="glyphicon glyphicon-stats"></span></button>
-                    <button class="btn btn-sm btn-default no-border"><span class="glyphicon glyphicon-asterisk"></span></button>
+                    <img class="icon icon-treatment" src="img/icon_treatment.svg">
+                    <img class="icon icon-configuration" src="img/icon_configuration.svg">
                 </div>
             </div>
         </nav>
 
         <div class="container">
-            <h1 class="text-center">
-                <div class="questionContainer lead"></div>
-            </h1>
-
-            <form>
-                <div class="form-group well well-sm">
-                    <select class="form-control input-lg">
-                        <option>Lorem ipsum</option>
-                        <option>Sit amet</option>
-                        <option>Consectetur adipisicing</option>
-                        <option>Sed do eiusmod</option>
-                        <option>Tempor incididunt</option>
-                    </select>
-                </div>
-
-                <div class="form-group well well-sm">
-                    <button class="btn btn-lg btn-primary btn-block">YES</button>
-                    <button class="btn btn-lg btn-default btn-block">NO</button>
-                </div>
-
-                <div class="form-group well well-sm text-center">
-                    <div class="range-input clearfix">
-                        <p class="value">6</p>
-                        <input type="range" min="0" max="10" value="0">
-                        <span class="pull-left">0 - Lorem</span>
-                        <span class="pull-right">Ipsum - 10</span>
-                    </div>
-                </div>
-            </form>
-
-            <ul class="pager">
-                <li class="next"><a href="#">Next <span class="glyphicon glyphicon-chevron-right"></span></a></li>
-            </ul>
+            <div class="questionContainer"></div>
         </div>
 
-        <footer class="normal">
-            <div class="container">
-                <p class="text-muted text-center status">NORMAL</p>
+        <footer>
+            <div class="container text-center status next">
+                <p><img class="icon icon-btn-next" src="img/btn_next.svg"></p>
             </div>
         </footer>
 
-<!--
-  <footer class="warning">
-    <div class="container">
-      <p class="text-muted text-center status">WARNING</p>
-    </div>
-  </footer> -->
+        <!--
+          <footer class="warning">
+            <div class="container">
+              <p class="text-muted text-center status">WARNING</p>
+            </div>
+          </footer> -->
 
-<!--
-  <footer class="danger">
-    <div class="container">
-      <p class="text-muted text-center status">DANGER</p>
-    </div>
-  </footer>
- -->
+        <!--
+          <footer class="danger">
+            <div class="container">
+              <p class="text-muted text-center status">DANGER</p>
+            </div>
+          </footer>
+         -->
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
@@ -87,18 +56,14 @@
         <script type="text/javascript" src="js/lib/backbone-min.js"></script>
         <script type="text/javascript" src="js/lib/mustache.min.js"></script>
         <script type="text/javascript" src="js/models/question-model.js"></script>
+        <script type="text/javascript" src="js/models/treatment-model.js"></script>
         <script type="text/javascript" src="js/collections/question-collection.js"></script>
+        <script type="text/javascript" src="js/collections/current-treatment-collection.js"></script>
+        <script type="text/javascript" src="js/collections/past-treatment-collection.js"></script>
         <script type="text/javascript" src="js/views/question-view.js"></script>
         <script type="text/javascript" src="js/views/app-view.js"></script>
         <script type="text/javascript">
-
-
             var questions = [
-                {
-                    'id': 0,
-                    'text': 'Throughout our lives, most of us have had pain from time to time (such as minor headaches, sprains, and toothaches). Have you had pain other than these everyday kinds of pain today?',
-                    'type': 'bool'
-                },
                 {
                     'id': 1,
                     'text': 'Please rate your pain at its WORST in the last 24 hours.',
@@ -135,57 +100,50 @@
                     'max': 'Complete Relief',
                 },
                 {
-                    'id': 6,
-                    'text': 'In the last 24 hours, how much relief have pain treatments or medications provided?',
-                    'type': 'range',
-                    'min': 'No Relief',
-                    'max': 'Complete Relief',
-                },
-                {
                     'id': 7,
-                    'text': 'During the past 24 hours, pain has interfered with your General activity:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your General activity:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 8,
-                    'text': 'During the past 24 hours, pain has interfered with your Mood:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Mood:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 9,
-                    'text': 'During the past 24 hours, pain has interfered with your Walking ability:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Walking ability:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 10,
-                    'text': 'During the past 24 hours, pain has interfered with your Normal work (includes both work outside the home and housework):',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Normal work (includes both work outside the home and housework):',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 11,
-                    'text': 'During the past 24 hours, pain has interfered with your relations with other people:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Relations with other people:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 12,
-                    'text': 'During the past 24 hours, pain has interfered with your Sleep:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Sleep:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
                 },
                 {
                     'id': 13,
-                    'text': 'During the past 24 hours, pain has interfered with your Enjoyment of life:',
+                    'text': 'During the past 24 hours, how much has pain interfered with your Enjoyment of life:',
                     'type': 'range',
                     'min': 'Does not interfere',
                     'max': 'Completely interfere',
@@ -193,14 +151,30 @@
             ];
             $(function() {
                 var questionCollection = new QuestionsCollection(questions);
-                app = new AppView({'questionCollection':questionCollection, el:$('.app')});
+                var pastTreatments = new PastTreatmentCollection();
+                // pastTreatments.loadFromLocal();
+                var currentTreatments = new CurrentTreatmentCollection();
+                // currentTreatments.loadFromLocal();
+                app = new AppView({'questionCollection':questionCollection, 'currentTreatments': currentTreatments, 'pastTreatments':pastTreatments, el:$('.app')});
                 app.getNextQuestion();
             });
         </script>
 
-
         <script id="questionTemplate" type="html/template">
-            <div class="questionText">{{ text }}</div>
+            <div class="questionText animated slideInRight">
+                <h1 class="text-center">{{{ text }}}</h1>
+
+                <form>
+                    <div class="form-group   text-center">
+                        <div class="range-input clearfix">
+                            <p class="value">5</p>
+                            <input type="range" min="0" max="10" value="5" class="form-input input-lg">
+                            <span class="pull-left">0 - {{ min }}</span>
+                            <span class="pull-right">{{ max }} - 10</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </script>
 
         <script id="doneTemplate" type="html/template">

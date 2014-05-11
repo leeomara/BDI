@@ -17,8 +17,10 @@ Question = Backbone.Model.extend({
         "avg": 5,
         "avgTime": 5,
         "avgTimeUp": false,
+        "avgTimeChanged": true,
         "avgTreatment": 5,
         "avgTreatmentUp": false,
+        "avgTreatmentChanged": true,
     },
 
     key: 'question-',
@@ -87,12 +89,18 @@ Question = Backbone.Model.extend({
         if (avgTime > 0){
             this.set('avgTimeUp',true);
         }
+        if (avgTime == 0) {
+        	this.set("avgTimeChanged", false);
+        }
         this.set('avgTime', avgTime);
 
         var avgTreatment = this.findDiffAverage(data, TreatmentTimestamp);
         this.set('avgTreatment', avgTreatment);
         if (avgTreatment > 0){
             this.set('avgTreatmentUp',true);
+        }
+        if (avgTreatment == 0) {
+        	this.set("avgTreatmentChanged", false);
         }
 
     },

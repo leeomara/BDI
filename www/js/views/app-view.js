@@ -52,6 +52,17 @@ var AppView = Backbone.View.extend({
         this.currentTreatments = options.currentTreatments;
         this.timestamp = new Date().getTime();
 
+        moment.lang('en', {
+            calendar : {
+                lastDay : '[Yesterday]',
+                sameDay : '[Today]',
+                nextDay : '[Tomorrow]',
+                lastWeek : '[last] dddd',
+                nextWeek : 'dddd',
+                sameElse : 'L'
+            }
+        });
+        
     },
 
 
@@ -64,7 +75,7 @@ var AppView = Backbone.View.extend({
     	this.setNavbarState('questions');
         //Save the current one
         if (this.currQuestion !== null) {
-            this.currQuestion.saveToLocal(this.timestamp);
+            //this.currQuestion.saveToLocal(this.timestamp);
         }
         this.currQuestion = this.questionCollection.getNextQuestion();
         if (this.currQuestion === null) {
@@ -148,6 +159,8 @@ var AppView = Backbone.View.extend({
     hideAllContainers:function() {
         this.$('footer').hide();
         this.$(this.questionContainer).hide();
+        this.$(this.endContainer).hide();
+        this.$(this.treatmentsContainer).hide();
         this.$(this.questionResultsContainer).hide();
     },
     

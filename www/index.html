@@ -35,11 +35,40 @@
                     <div class="animated fadeInRight">
                         <h1 class="text-center all-done">All done.</h1>
                         <div class="col-xs-offset-1 col-xs-10">
-                            <button class="btn btn-lg btn-primary btn-block report">VIEW REPORT</button>
+                            <button class="btn btn-lg btn-primary btn-block reportsView">VIEW REPORT</button>
                         </div>
                     </div>
                 </div>
-                <div class="treatmentsContainer" style="display:none">treatments</div>
+                <div class="treatmentsContainer" style="display:none">
+              	 	<div class="row treatmentPeriod">
+	            		<h2 class="date">Today</h2>
+					
+	            		<div class="input-group input-group-lg addTreatment">
+	      					<textarea class="form-control treatmentText" name="treatmentText" ></textarea>
+	      					<span class="input-group-btn">
+	        					<button class="btn btn-default addbutton" type="button"><span class="glyphicon glyphicon-plus "></span></button>
+	      					</span>
+	   					</div>
+		   				<div class="list-group treatments">
+		   					<div class="list-group-item treatment"><div class="treatmentText">Acupuncture, 20 min, weekly</div><div class="removeTreatment"></div></div>
+		            	</div>
+	            	</div>
+	            	<div class="row treatmentPeriod">
+	            		<h2 class="date">Feb 19, 2014</h2>
+	   					<div class="list-group treatments">
+	   						<div class="list-group-item treatment"><div class="treatmentText">Acupuncture, 20 min, weekly</div><div class="removeTreatment"></div></div>
+	   						<div class="list-group-item treatment"><div class="treatmentText">Oxycotin, 200mg insuflated, hourly</div><div class="removeTreatment"></div></div>
+	   						<div class="list-group-item treatment"><div class="treatmentText">Physio, 20 min, daily</div><div class="removeTreatment"></div></div>
+	            		</div>
+	            	</div>
+	            	<div class="row treatmentPeriod">
+	            		<h2 class="date">Jan 1, 2014</h2>
+	   					<div class="list-group treatments">
+	   						<div class="list-group-item treatment"><div class="treatmentText">Acupuncture, 20 min, weekly</div><div class="removeTreatment"></div></div>
+	   						<div class="list-group-item treatment"><div class="treatmentText">Oxycotin, 20mg, every 6 hours</div><div class="removeTreatment"></div></div>
+	            		</div>
+	            	</div>
+                </div>
             </div>
 
             <footer>
@@ -204,25 +233,27 @@
 	            	<span class="questionAverageResult">{{avg}}</span>
 	            </div>
 	            <div class="col-xs-6 comparisons" >
-		        	<div class="{{^avgTimeUp}}improved{{/avgTimeUp}}{{#avgTimeUp}}worse{{/avgTimeUp}}"><span class="glyphicon glyphicon-time"></span><span class="glyphicon glyphicon-arrow-{{#avgTimeUp}}up{{/avgTimeUp}}{{^avgTimeUp}}down{{/avgTimeUp}}"></span><span class="changeValue">{{avgTime}}</span></div>
+		        	<div class="{{^avgTimeUp}}improved{{/avgTimeUp}}{{#avgTimeUp}}worse{{/avgTimeUp}}"><span class="glyphicon glyphicon-time"></span>{{#avgTimeChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTimeUp}}up{{/avgTimeUp}}{{^avgTimeUp}}down{{/avgTimeUp}}"></span>{{/avgTimeChanged}}<span class="changeValue">{{avgTime}}</span></div>
 		           	<hr class="separator" />
-		           	<div class="{{^avgTreatmentUp}}improved{{/avgTreatmentUp}}{{#avgTreatmentUp}}worse{{/avgTreatmentUp}}"><img class="icon icon-treatment report" src="img/icon_treatment.svg"><span class="glyphicon glyphicon-arrow-{{#avgTreatmentUp}}up{{/avgTreatmentUp}}{{^avgTreatmentUp}}down{{/avgTreatmentUp}}"></span><span class="changeValue">{{avgTreatment}}</span></div>
+		           	<div class="{{^avgTreatmentUp}}improved{{/avgTreatmentUp}}{{#avgTreatmentUp}}worse{{/avgTreatmentUp}}"><img class="icon icon-treatment report" src="img/icon_treatment.svg">{{#avgTreatmentChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTreatmentUp}}up{{/avgTreatmentUp}}{{^avgTreatmentUp}}down{{/avgTreatmentUp}}"></span>{{/avgTreatmentChanged}}<span class="changeValue">{{avgTreatment}}</span></div>
 	           	</div>
 	        </div>
 		</script>
 		
-		<script id="treatmentHistoryTemplate" type="html/template">
+		<script id="treatmentTemplate" type="html/template">
 			<div class="row treatmentPeriod">
-            	<h2 class="date">Since May 9, 2014</h2>
-            	<div class="input-group input-group-lg addTreatment">
+            	<h2 class="date">{{niceDate}}</h2>
+				{{#isCurrent}}
+            		<div class="input-group input-group-lg addTreatment">
       					<textarea class="form-control treatmentText" name="treatmentText" ></textarea>
       					<span class="input-group-btn">
         					<button class="btn btn-default addbutton" type="button"><span class="glyphicon glyphicon-plus "></span></button>
       					</span>
    					</div>
-   					<div class="list-group treatments">
-   						<div class="list-group-item treatment"><div class="treatmentText">Acupuncture, 20 min, weekly</div><div class="removeTreatment"></div></div>
-            		</div>
+				{{/isCurrent}}
+   				<div class="list-group treatments">
+   					<div class="list-group-item treatment"><div class="treatmentText">Acupuncture, 20 min, weekly</div><div class="removeTreatment"></div></div>
+            	</div>
             	</div>
             	<div class="row treatmentPeriod">
             		<h2 class="date">Feb 19, 2014</h2>

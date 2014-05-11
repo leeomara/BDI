@@ -194,6 +194,11 @@ div.questionResult {
 	color: white;
 }
 
+.noChange {
+	background-color: #A6A8AB;
+	color: white;
+}
+
 .improved {
 	background-color: #99BC86;
 	color: white;

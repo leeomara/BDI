@@ -233,9 +233,9 @@
 	            	<span class="questionAverageResult">{{avg}}</span>
 	            </div>
 	            <div class="col-xs-6 comparisons" >
-		        	<div class="{{^avgTimeUp}}improved{{/avgTimeUp}}{{#avgTimeUp}}worse{{/avgTimeUp}}"><span class="glyphicon glyphicon-time"></span>{{#avgTimeChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTimeUp}}up{{/avgTimeUp}}{{^avgTimeUp}}down{{/avgTimeUp}}"></span>{{/avgTimeChanged}}<span class="changeValue">{{avgTime}}</span></div>
+		        	<div class="{{#avgTimeChanged}}{{^avgTimeUp}}improved{{/avgTimeUp}}{{#avgTimeUp}}worse{{/avgTimeUp}}{{/avgTimeChanged}}{{^avgTimeChanged}}noChange{{/avgTimeChanged}}"><span class="glyphicon glyphicon-time"></span>{{#avgTimeChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTimeUp}}up{{/avgTimeUp}}{{^avgTimeUp}}down{{/avgTimeUp}}"></span>{{/avgTimeChanged}}<span class="changeValue">{{avgTime}}</span></div>
 		           	<hr class="separator" />
-		           	<div class="{{^avgTreatmentUp}}improved{{/avgTreatmentUp}}{{#avgTreatmentUp}}worse{{/avgTreatmentUp}}"><img class="icon icon-treatment report" src="img/icon_treatment.svg">{{#avgTreatmentChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTreatmentUp}}up{{/avgTreatmentUp}}{{^avgTreatmentUp}}down{{/avgTreatmentUp}}"></span>{{/avgTreatmentChanged}}<span class="changeValue">{{avgTreatment}}</span></div>
+		           	<div class="{{#avgTreatmentChanged}}{{^avgTreatmentUp}}improved{{/avgTreatmentUp}}{{#avgTreatmentUp}}worse{{/avgTreatmentUp}}{{/avgTreatmentChanged}}{{^avgTreatmentChanged}}noChange{{/avgTreatmentChanged}}"><img class="icon icon-treatment report" src="img/icon_treatment.svg">{{#avgTreatmentChanged}}<span class="glyphicon glyphicon-arrow-{{#avgTreatmentUp}}up{{/avgTreatmentUp}}{{^avgTreatmentUp}}down{{/avgTreatmentUp}}"></span>{{/avgTreatmentChanged}}<span class="changeValue">{{avgTreatment}}</span></div>
 	           	</div>
 	        </div>
 		</script>

@@ -203,9 +203,9 @@
 	            	<span class="questionAverageResult">{{avg}}</span>
 	            </div>
 	            <div class="col-xs-6 comparisons" >
-		        	<div class="{{#avgTimeUp}}improved{{/avgTimeUp}}{{^avgTimeUp}}worse{{/avgTimeUp}}"><span class="glyphicon glyphicon-time"></span><span class="glyphicon glyphicon-arrow-{{#avgTimeUp}}up{{/avgTimeUp}}{{^avgTimeUp}}down{{/avgTimeUp}}"></span><span class="changeValue">{{avgTime}}</span></div>
+		        	<div class="{{^avgTimeUp}}improved{{/avgTimeUp}}{{#avgTimeUp}}worse{{/avgTimeUp}}"><span class="glyphicon glyphicon-time"></span><span class="glyphicon glyphicon-arrow-{{#avgTimeUp}}up{{/avgTimeUp}}{{^avgTimeUp}}down{{/avgTimeUp}}"></span><span class="changeValue">{{avgTime}}</span></div>
 		           	<hr class="separator" />
-		           	<div class="{{#avgTreatmentUp}}improved{{/avgTreatmentUp}}{{^avgTreatmentUp}}worse{{/avgTreatmentUp}}"><img class="icon icon-treatment report" src="img/icon_treatment.svg"><span class="glyphicon glyphicon-arrow-{{#avgTreatmentUp}}up{{/avgTreatmentUp}}{{^avgTreatmentUp}}down{{/avgTreatmentUp}}"></span><span class="changeValue">{{avgTreatment}}</span></div>
+		           	<div class="{{^avgTreatmentUp}}improved{{/avgTreatmentUp}}{{#avgTreatmentUp}}worse{{/avgTreatmentUp}}"><img class="icon icon-treatment report" src="img/icon_treatment.svg"><span class="glyphicon glyphicon-arrow-{{#avgTreatmentUp}}up{{/avgTreatmentUp}}{{^avgTreatmentUp}}down{{/avgTreatmentUp}}"></span><span class="changeValue">{{avgTreatment}}</span></div>
 	           	</div>
 	        </div>
 		</script>

@@ -113,23 +113,16 @@ Question = Backbone.Model.extend({
 
         var afterAverage = this.findAverage(timestampAfter);
 
-        var diff;
 
-        if (afterAverage > beforeAverage) {
-            diff = (afterAverage/beforeAverage);
-        }
-        else{
-            diff = (beforeAverage/afterAverage);
-        }
+        var diff = ((afterAverage - beforeAverage)/ beforeAverage)*100;
+        // //
+        // if (afterAverage == 0){
+        //     diff = (0 - beforeAverage)*100;
+        // }
 
-        //
-        if (afterAverage == 0){
-            diff = (0 - beforeAverage)*100;
-        }
-
-        if (beforeAverage == 0){
-            diff = (afterAverage)*100;
-        }
+        // if (beforeAverage == 0){
+        //     diff = (afterAverage)*100;
+        // }
 
 
         diff = parseFloat(diff).toFixed(0);

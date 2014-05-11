@@ -78,7 +78,7 @@ h1 {
 }
 
 .range-input span {
-  margin-top: 6px;
+  margin-top: 30px;
 }
 
 .range-input .value {
@@ -87,6 +87,10 @@ h1 {
   margin-bottom: 0;
 }
 
+
+.margeiner {
+
+}
 .btn-primary {
   background: #1d6ab7;
 }
@@ -116,6 +120,8 @@ input[type=range]:focus {
 }
 
 input[type=range] {
+  margin-top: 50px;
+  padding:0;
   -webkit-appearance: none;
   vertical-align: middle;
   /*width: 240px;*/
@@ -253,7 +259,7 @@ textarea.treatmentText {
 	background-image: url(../img/Icon_Red_Delete.svg);
 	background-repeat: no-repeat;
 	background-size: 24px 24px;
-	background-position:center; 
+	background-position:center;
 	float:right;
 }
 

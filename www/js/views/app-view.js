@@ -150,6 +150,11 @@ var AppView = Backbone.View.extend({
         this.currView = this.treatmentsContainer;
     },
 
+    showTreatments: function() {
+
+    },
+
+
 
 
     /**

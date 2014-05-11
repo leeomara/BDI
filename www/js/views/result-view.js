@@ -38,28 +38,7 @@ var ResultView = Backbone.View.extend({
         var rendered = Mustache.to_html(templater, this.model.toJSON());
         this.$el.html(rendered);
         return this;
-    },
-
-    /**
-    * rangeChange
-    * Method for changing the range value
-    * @param jQuery Event
-    */
-    rangeChange: function(event) {
-        var $range = $(event.currentTarget);
-        var val = ($range.val() - $range.attr('min')) / ($range.attr('max') - $range.attr('min'));
-
-        $range.css('background-image',
-            '-webkit-gradient(linear, left top, right top, '
-            + 'color-stop(' + val + ', #1d6ab7), '
-            + 'color-stop(' + val + ', #d2e1F1)'
-            + ')'
-        );
-
-        this.$('.value').html($range.val());
-        this.model.set('value', $range.val());
     }
-
 
 
 

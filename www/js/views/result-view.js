@@ -20,7 +20,7 @@ var ResultView = Backbone.View.extend({
     initialize : function(options) {
 
         //Bind this to the following functions
-        _.bindAll(this, "render", "rangeChange");
+        _.bindAll(this, "render");
 
         var that = this;
 
